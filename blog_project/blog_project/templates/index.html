@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'blog/css/post.css' %}" />
+{% endblock css_files %}
+
+{% block title %}
+    Main Page    
+{% endblock title %}
+
+{% block content %}
+
+    {% include "includes/header.html" %}
+
+    <section id="welcome">
+        <header>
+            <img src="{% static 'images/me.jpeg' %}" alt="Matt - The Author Of This Blog"/>
+            <h2>MATT'S BLOG</h2>
+        </header>
+        <p>Hi, I am Matt and I love to blog!</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Posts</h2>
+
+        <ul>
+            {% for post in posts %}
+                {% include 'includes/post.html' %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I Do</h2>
+        <p>
+            I love programming and doing and watching sport. I am basketball player and football fan.
+        </p>
+        <p>
+            I wanna be Django developer!
+        </p>
+    </section>
+{% endblock content %}
+
+
