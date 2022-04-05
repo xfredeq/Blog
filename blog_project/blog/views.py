@@ -10,6 +10,9 @@ class PostView(View):
             return render(request, 'blog/all_posts.html', context={
                 "posts": get_all_posts()
             })
+
+        post = get_specific_post(slug)
         return render(request, 'blog/single_post.html', context={
-            'post': get_specific_post(slug)
+            'post': post,
+            'post_tags': post.tags.all()
         })
